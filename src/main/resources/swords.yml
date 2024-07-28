@@ -1,0 +1,37 @@
+#rarity: 0 - обычный, 1 - редкий, 2 - эпический, 3 - легендарный, 4 - мифический
+#special: 0 - отсутствует / В РАЗРАБОТКЕ
+#материалы: 0 - дерево, 1 - камень, 2 - железо, 3 - золото, 4 - алмаз, 5 - незерит
+
+
+Swords:
+  example:
+    Name: "Example Sword"
+    Material: 4
+    Damage: 10
+    Level: 1
+    Speed: 1.6
+    critDamage: 2
+    critChance: 0.1
+    special: 0
+    rarity: 0
+
+RarityList:
+    0:
+        Name: "Обычный"
+        Color: "§f"
+    1:
+        Name: "Редкий"
+        Color: "§9"
+    2:
+        Name: "Эпический"
+        Color: "§5"
+    3:
+        Name: "Легендарный"
+        Color: "§6"
+    4:
+        Name: "Мифический"
+        Color: "§d"
+SpecialList:
+    0:
+        Name: "Отсутствует"
+        Color: "§f"

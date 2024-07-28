@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="ArCore:jar">
+    <output-path>$USER_HOME$/Desktop/artess/plugins</output-path>
+    <root id="archive" name="ArCore.jar">
+      <element id="module-output" name="ArCore" />
+    </root>
+  </artifact>
+</component>

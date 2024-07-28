@@ -1,0 +1,13 @@
+Players:
+  example:
+    Floor: 1
+    Level: 1
+    XP: 0
+    Health: 100
+    Attack: 1
+    Stamina: 1
+    Dexterity: 1
+    Stealth: 1
+    Wisdom: 1
+    Luck: 1
+    Points: 10

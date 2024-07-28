@@ -1,0 +1,25 @@
+name: ArCore
+version: '1.0-SNAPSHOT'
+main: org.artess.arCore.ArCore
+api-version: '1.20'
+commands:
+  swords:
+    description: "Команда для работы с мечами"
+    usage: "/swords"
+    permission: "arcore.swords"
+  floors:
+    description: "Команда для работы с этажами"
+    usage: "/floors"
+    permission: "arcore.floors"
+  stats:
+    description: "Команда для работы со статистикой персонажа"
+    usage: "/stats"
+    permission: "arcore.stats"
+  borders:
+    description: "Команда для работы с границей этажей"
+    usage: "/borders"
+    permission: "arcore.borders"
+  armor:
+    description: "Команда для работы с броней"
+    usage: "/armor"
+    permission: "arcore.armor"
