@@ -23,3 +23,11 @@ commands:
     description: "Команда для работы с броней"
     usage: "/armor"
     permission: "arcore.armor"
+  mobs:
+    description: "Команда для работы с мобами"
+    usage: "/mobs"
+    permission: "arcore.mobs"
+  items:
+    description: "Команда для работы с предметами"
+    usage: "/items"
+    permission: "arcore.items"

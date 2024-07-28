@@ -25,19 +25,19 @@ public class Armor implements Listener {
     private ItemStack armor(String name, String title, int type, int material, int health, int level, int special, int rarity) {
         ItemStack armor = new ItemStack(MaterialList.get(type).get(material));
         ItemMeta meta = armor.getItemMeta();
-        String s = ArCore.getInstance().armor.getString("RarityList." + rarity + ".Color");
+        String s = ArCore.getInstance().items.getString("RarityList." + rarity + ".Color");
         meta.setDisplayName(s + "§l" + title);
         List<String> lore = new ArrayList<>();
         lore.add("§cЗдоровье: +" + health);
         lore.add("§7Уровень: " + s + level);
         if (special != 0) {
             lore.add(" ");
-            lore.add("§7Особенность: " + ArCore.getInstance().armor.getString("SpecialList." + special + ".Color") +
-                    ArCore.getInstance().armor.getString("SpecialList." + special + ".Name"));
+            lore.add("§7Особенность: " + ArCore.getInstance().items.getString("SpecialList." + special + ".Color") +
+                    ArCore.getInstance().items.getString("SpecialList." + special + ".Name"));
         }
         lore.add(" ");
-        lore.add(ArCore.getInstance().armor.getString("RarityList." + rarity + ".Color") + "§l" +
-                ArCore.getInstance().armor.getString("RarityList." + rarity + ".Name"));
+        lore.add(ArCore.getInstance().items.getString("RarityList." + rarity + ".Color") + "§l" +
+                ArCore.getInstance().items.getString("RarityList." + rarity + ".Name"));
         meta.setLore(lore);
         meta.setUnbreakable(true);
         meta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
@@ -47,38 +47,38 @@ public class Armor implements Listener {
     }
 
     public List<String> listArmor() {
-        return List.copyOf(ArCore.getInstance().armor.getConfigurationSection("Armor").getKeys(false));
+        return List.copyOf(ArCore.getInstance().items.getConfigurationSection("Armor").getKeys(false));
     }
 
     public void createArmor(String name, String title, int type, int material, int health, int level, int special, int rarity) {
-        ArCore.getInstance().armor.set("Armor." + name + ".Name", name);
-        ArCore.getInstance().armor.set("Armor." + name + ".Title", title);
-        ArCore.getInstance().armor.set("Armor." + name + ".Type", type);
-        ArCore.getInstance().armor.set("Armor." + name + ".Material", material);
-        ArCore.getInstance().armor.set("Armor." + name + ".Health", health);
-        ArCore.getInstance().armor.set("Armor." + name + ".Level", level);
-        ArCore.getInstance().armor.set("Armor." + name + ".Special", special);
-        ArCore.getInstance().armor.set("Armor." + name + ".Rarity", rarity);
+        ArCore.getInstance().items.set("Armor." + name + ".Name", name);
+        ArCore.getInstance().items.set("Armor." + name + ".Title", title);
+        ArCore.getInstance().items.set("Armor." + name + ".Type", type);
+        ArCore.getInstance().items.set("Armor." + name + ".Material", material);
+        ArCore.getInstance().items.set("Armor." + name + ".Health", health);
+        ArCore.getInstance().items.set("Armor." + name + ".Level", level);
+        ArCore.getInstance().items.set("Armor." + name + ".Special", special);
+        ArCore.getInstance().items.set("Armor." + name + ".Rarity", rarity);
         ArCore.getInstance().saveArmor();
     }
 
     public void removeArmor(String name) {
-        ArCore.getInstance().armor.set("Armor." + name, null);
+        ArCore.getInstance().items.set("Armor." + name, null);
         ArCore.getInstance().saveArmor();
     }
 
     public ItemStack findArmor(String name) {
-        List<String> Armor = ArCore.getInstance().armor.getConfigurationSection("Armor").getKeys(false).stream().toList();
+        List<String> Armor = ArCore.getInstance().items.getConfigurationSection("Armor").getKeys(false).stream().toList();
         if (Armor.contains(name)) {
             ItemStack armor = armor(
-                    ArCore.getInstance().armor.getString("Armor." + name + ".Name"),
-                    ArCore.getInstance().armor.getString("Armor." + name + ".Title"),
-                    ArCore.getInstance().armor.getInt("Armor." + name + ".Type"),
-                    ArCore.getInstance().armor.getInt("Armor." + name + ".Material"),
-                    ArCore.getInstance().armor.getInt("Armor." + name + ".Health"),
-                    ArCore.getInstance().armor.getInt("Armor." + name + ".Level"),
-                    ArCore.getInstance().armor.getInt("Armor." + name + ".Special"),
-                    ArCore.getInstance().armor.getInt("Armor." + name + ".Rarity")
+                    ArCore.getInstance().items.getString("Armor." + name + ".Name"),
+                    ArCore.getInstance().items.getString("Armor." + name + ".Title"),
+                    ArCore.getInstance().items.getInt("Armor." + name + ".Type"),
+                    ArCore.getInstance().items.getInt("Armor." + name + ".Material"),
+                    ArCore.getInstance().items.getInt("Armor." + name + ".Health"),
+                    ArCore.getInstance().items.getInt("Armor." + name + ".Level"),
+                    ArCore.getInstance().items.getInt("Armor." + name + ".Special"),
+                    ArCore.getInstance().items.getInt("Armor." + name + ".Rarity")
             );
             return armor;
         } else {

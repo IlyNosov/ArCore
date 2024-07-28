@@ -1,3 +1,21 @@
 Hostile:
+  example:
+    Name: "Example mob name"
+    Health: 20
+    Level: 1
+    XP: 1
+    Damage: 5
+    Weapon: "test2"
+    Helmet: "228"
+    Chestplate:
+    Leggings:
+    Boots:
+    DropList:
+      id:
+        Chance: 100
+        Amount: 1
+      id2:
+        Chance: 50
+        Amount: 1
 
 Passive:

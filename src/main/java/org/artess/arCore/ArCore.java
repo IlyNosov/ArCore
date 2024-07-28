@@ -20,11 +20,15 @@ public final class ArCore extends JavaPlugin {
     File swordsFile;
     FileConfiguration swords;
     File floorsFile;
-    FileConfiguration floors;
+    public FileConfiguration floors;
     File bordersFile;
     FileConfiguration borders;
     File armorFile;
     FileConfiguration armor;
+    File mobsFile;
+    FileConfiguration mobs;
+    File itemsFile;
+    FileConfiguration items;
 
     public Logger logger = getLogger();
 
@@ -47,6 +51,13 @@ public final class ArCore extends JavaPlugin {
         armorFile = new File(getDataFolder(), "armor.yml");
         armor = YamlConfiguration.loadConfiguration(armorFile);
         saveArmor();
+        mobsFile = new File(getDataFolder(), "mobs.yml");
+        mobs = YamlConfiguration.loadConfiguration(mobsFile);
+        saveMobs();
+        itemsFile = new File(getDataFolder(), "items.yml");
+        items = YamlConfiguration.loadConfiguration(itemsFile);
+        saveItems();
+
         new DelayedTask(this);
         Bukkit.getPluginManager().registerEvents(new Borders(), this);
         Bukkit.getPluginManager().registerEvents(new Floors(), this);
@@ -54,11 +65,15 @@ public final class ArCore extends JavaPlugin {
         Bukkit.getPluginManager().registerEvents(new Stats(), this);
         Bukkit.getPluginManager().registerEvents(new MobSpawn(), this);
         Bukkit.getPluginManager().registerEvents(new Armor(), this);
+        Bukkit.getPluginManager().registerEvents(new Items(), this);
+        Bukkit.getPluginManager().registerEvents(new FightSystem(), this);
         this.getCommand("swords").setExecutor(new SwordsCmd());
         this.getCommand("floors").setExecutor(new FloorsCmd());
         this.getCommand("stats").setExecutor(new StatsCmd());
         this.getCommand("borders").setExecutor(new BordersCmd());
         this.getCommand("armor").setExecutor(new ArmorCmd());
+        this.getCommand("mobs").setExecutor(new MobsCmd());
+        this.getCommand("items").setExecutor(new ItemsCmd());
         logger.info("ArCore работает!");
     }
 
@@ -71,6 +86,8 @@ public final class ArCore extends JavaPlugin {
         saveFloors();
         saveBorders();
         saveArmor();
+        saveMobs();
+        saveItems();
     }
 
     public static ArCore getInstance() { return instance; }
@@ -110,6 +127,22 @@ public final class ArCore extends JavaPlugin {
     public void saveArmor() {
         try {
             armor.save(armorFile);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void saveMobs() {
+        try {
+            mobs.save(mobsFile);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void saveItems() {
+        try {
+            items.save(itemsFile);
         } catch (IOException e) {
             e.printStackTrace();
         }
