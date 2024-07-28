@@ -20,7 +20,7 @@ public final class ArCore extends JavaPlugin {
     File swordsFile;
     FileConfiguration swords;
     File floorsFile;
-    public FileConfiguration floors;
+    FileConfiguration floors;
     File bordersFile;
     FileConfiguration borders;
     File armorFile;
