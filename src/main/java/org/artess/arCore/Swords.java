@@ -1,5 +1,8 @@
 package org.artess.arCore;
 
+import net.kyori.adventure.text.Component;
+import net.kyori.adventure.text.NBTComponent;
+import net.kyori.adventure.text.NBTComponentBuilder;
 import org.bukkit.Material;
 import org.bukkit.attribute.Attribute;
 import org.bukkit.attribute.AttributeModifier;
@@ -38,12 +41,11 @@ public class Swords implements Listener {
         lore.add(" ");
         lore.add(ArCore.getInstance().swords.getString("RarityList." + rarity + ".Color") + "§l" +
                 ArCore.getInstance().swords.getString("RarityList." + rarity + ".Name"));
+        lore.add("§8#" + name);
         meta.setLore(lore);
         meta.setUnbreakable(true);
         meta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
         meta.addItemFlags(ItemFlag.HIDE_UNBREAKABLE);
-        int v = ArCore.getInstance().swords.getStringList("RarityList").indexOf(name);
-        meta.setVersion(v);
         meta.addAttributeModifier(Attribute.GENERIC_ATTACK_DAMAGE, new AttributeModifier(UUID.randomUUID(), "generic.attackDamage", damage, AttributeModifier.Operation.ADD_NUMBER, EquipmentSlot.HAND));
         meta.addAttributeModifier(Attribute.GENERIC_ATTACK_SPEED, new AttributeModifier(UUID.randomUUID(), "generic.attackSpeed", speed, AttributeModifier.Operation.ADD_NUMBER, EquipmentSlot.HAND));
         sword.setItemMeta(meta);

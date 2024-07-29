@@ -21,12 +21,16 @@ public class Items implements Listener {
         String s = ArCore.getInstance().items.getString("RarityList." + rarity + ".Color");
         meta.setDisplayName(s + "§l" + title);
         List<String> loreList = new ArrayList<>();
-        loreList.add("§7" + lore);
-        loreList.add(" ");
+        if (lore != null) {
+            loreList.add("§7" + lore);
+            loreList.add(" ");
+        }
         loreList.add(ArCore.getInstance().items.getString("RarityList." + rarity + ".Color") + "§l" +
                 ArCore.getInstance().items.getString("RarityList." + rarity + ".Name") + " " +
                 ArCore.getInstance().items.getString("TypeList." + item_type + ".Name"));
+        loreList.add("§8#" + name);
         meta.setLore(loreList);
+        item.setItemMeta(meta);
         return item;
     }
 
@@ -50,7 +54,7 @@ public class Items implements Listener {
     }
 
     public ItemStack findItem(String name) {
-        List<String> items = listItems();
+        List<String> items = ArCore.getInstance().items.getConfigurationSection("Items").getKeys(false).stream().toList();
         if (items.contains(name)) {
             ItemStack item = item(name, ArCore.getInstance().items.getString("Items." + name + ".Title"),
                     ArCore.getInstance().items.getString("Items." + name + ".Material"),

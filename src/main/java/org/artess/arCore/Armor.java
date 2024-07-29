@@ -38,6 +38,7 @@ public class Armor implements Listener {
         lore.add(" ");
         lore.add(ArCore.getInstance().items.getString("RarityList." + rarity + ".Color") + "§l" +
                 ArCore.getInstance().items.getString("RarityList." + rarity + ".Name"));
+        lore.add("§8#" + name);
         meta.setLore(lore);
         meta.setUnbreakable(true);
         meta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
