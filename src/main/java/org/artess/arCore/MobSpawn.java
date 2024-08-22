@@ -9,7 +9,6 @@ import org.bukkit.event.entity.EntitySpawnEvent;
 
 public class MobSpawn implements Listener {
 
-    @EventHandler
     public void onMobSpawn(EntitySpawnEvent e) {
         if(e.getEntity() instanceof Monster) {
             e.setCancelled(true);
