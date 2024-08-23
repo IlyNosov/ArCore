@@ -19,7 +19,11 @@ public class FightSystem implements Listener {
     public void PlayerGetDamage(EntityDamageEvent e) {
         if (!(e.getEntity() instanceof Player)) return;
         Player p = (Player) e.getEntity();
-        p.sendMessage("§c" + e.getDamage() + "§c❤");
+        double Chance = ArCore.getInstance().stats.getInt("Players." + p.getName() + ".Wisdom") / 200.0;
+        if (Math.random() < Chance) {
+            e.setDamage(0);
+            p.spawnParticle(Particle.HEART, p.getLocation(), 1, 0.5, 0.5, 0.5, 0);
+        }
     }
 
     @EventHandler

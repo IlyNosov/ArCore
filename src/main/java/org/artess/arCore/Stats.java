@@ -70,9 +70,11 @@ public class Stats implements Listener {
         ArCore.getInstance().stats.set("Players." + p.getName() + "." + skill, ArCore.getInstance().stats.getInt("Players." + p.getName() + "." + skill) + value);
         ArCore.getInstance().stats.set("Players." + p.getName() + ".Points", ArCore.getInstance().stats.getInt("Players." + p.getName() + ".Points") - value);
         ArCore.getInstance().saveStats();
-        double health = ArCore.getInstance().stats.getInt("Players." + p.getName() + ".Health");
-        health += health * (ArCore.getInstance().stats.getInt("Players." + p.getName() + ".Stamina") - 1) / 100;
-        p.setHealthScale(health);
+        if (skill.equals("Stamina")) {
+            double health = ArCore.getInstance().stats.getInt("Players." + p.getName() + ".Health");
+            health += health * value / 100;
+            p.setHealthScale(health);
+        }
     }
 
     public void removeSkill(Player p, String skill, int value) {
@@ -136,11 +138,11 @@ public class Stats implements Listener {
         if (e.getInventory().contains(compass)) e.setCancelled(true);
     }
 
-    //Атака - до +20% к основному урону - +0.5% за поинт
-    //Выносливость - до +40% к макс здоровью - +1% за поинт
-    //Ловкость - до +20% к шансу крита - +0.5% за поинт
-    //Скрытность - до +60% к скорости - +1.5% за поинт
-    //Мудрость - до +20% к шансу поглотить урон - +0.5% за поинт
+    //Атака - до +20% к основному урону - +0.5% за поинт +
+    //Выносливость - до +40% к макс здоровью - +1% за поинт +
+    //Ловкость - до +20% к шансу крита - +0.5% за поинт +
+    //Скрытность - до +60% к скорости - +1.5% за поинт +
+    //Мудрость - до +20% к шансу поглотить урон - +0.5% за поинт +
     //Удача - до +20% к шансу дропа легендарного/мифического предмета - +0.5% за поинт
 
     @EventHandler

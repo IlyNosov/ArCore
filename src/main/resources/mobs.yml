@@ -1,5 +1,6 @@
 Hostile:
   example:
+    Type: "ZOMBIE"
     Name: "Example mob name"
     Health: 20
     Level: 1

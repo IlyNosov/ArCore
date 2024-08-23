@@ -31,3 +31,7 @@ commands:
     description: "Команда для работы с предметами"
     usage: "/items"
     permission: "arcore.items"
+  arcore:
+    description: "Команда для работы с плагином"
+    usage: "/arcore"
+    permission: "arcore.arcore"

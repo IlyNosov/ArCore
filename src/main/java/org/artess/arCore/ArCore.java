@@ -63,10 +63,11 @@ public final class ArCore extends JavaPlugin {
         Bukkit.getPluginManager().registerEvents(new Floors(), this);
         Bukkit.getPluginManager().registerEvents(new Swords(), this);
         Bukkit.getPluginManager().registerEvents(new Stats(), this);
-        Bukkit.getPluginManager().registerEvents(new MobSpawn(), this);
+        Bukkit.getPluginManager().registerEvents(new Mobs(), this);
         Bukkit.getPluginManager().registerEvents(new Armor(), this);
         Bukkit.getPluginManager().registerEvents(new Items(), this);
         Bukkit.getPluginManager().registerEvents(new FightSystem(), this);
+
         this.getCommand("swords").setExecutor(new SwordsCmd());
         this.getCommand("floors").setExecutor(new FloorsCmd());
         this.getCommand("stats").setExecutor(new StatsCmd());
