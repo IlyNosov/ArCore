@@ -9,6 +9,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.entity.EntityDamageEvent;
+
 import org.bukkit.util.Vector;
 
 public class FightSystem implements Listener {
@@ -69,4 +70,6 @@ public class FightSystem implements Listener {
         Bukkit.getScheduler().runTaskLater(ArCore.getInstance(), info::remove, 20);
         e.setDamage(damage);
     }
+
+    //TODO
 }

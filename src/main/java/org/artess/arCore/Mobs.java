@@ -13,7 +13,9 @@ public class Mobs implements Listener {
 
     public void spawnMob(EntityType type, String name, int health, int level, int xp, int damage, ItemStack weapon,
                          ItemStack helmet, ItemStack chestplate, ItemStack leggings, ItemStack boots, Location loc) {
-        
+        Mob mob = (Mob) loc.getWorld().spawnEntity(loc, type);
+        mob.setCustomName(name);
     }
 
+    //TODO
 }
